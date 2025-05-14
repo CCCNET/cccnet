@@ -127,25 +127,19 @@
     <a href="#" onclick="showSection('inicio')">Inicio</a>
     <a href="#" onclick="showSection('quienes')">Quiénes Somos</a>
     <a href="#" onclick="showSection('misionvision')">Misión y Visión</a>
-    <a href="#" onclick="showSection('objetivos')">Objetivos</a>
+    <a href="#" onclick="showSection('servicios')">Servicios</a>
+    <a href="#" onclick="showSection('contacto')">Contacto</a>
   </nav>
 
-  <section id="inicio" class="content">
+  <!-- INICIO -->
+  <section id="inicio" class="content active">
     <h1>Bienvenido a CCCNet</h1>
     <p>Somos líderes en soluciones de conectividad, redes e infraestructura tecnológica. Nuestra pasión es conectar personas, empresas y comunidades a través de redes seguras, estables y modernas.</p>
     <p>Explora nuestras secciones para conocer más sobre nosotros.</p>
     <img src="img/conectividad.jpg" alt="Conectividad de redes" class="section-image" />
-
-    <form id="contactForm">
-      <h2>Contáctanos</h2>
-      <input type="text" name="nombre" id="nombre" placeholder="Tu nombre" required />
-      <input type="email" name="correo" id="correo" placeholder="Tu correo electrónico" required />
-      <textarea name="mensaje" id="mensaje" rows="5" placeholder="Tu mensaje" required></textarea>
-      <button type="submit">Enviar</button>
-      <p id="formMessage" style="margin-top: 1em; color: green; font-weight: bold;"></p>
-    </form>
   </section>
 
+  <!-- QUIÉNES SOMOS -->
   <section id="quienes" class="content">
     <h2>¿Quiénes Somos?</h2>
     <p>CCCNet es una empresa tecnológica especializada en conectividad. Nuestro equipo está compuesto por profesionales con amplia experiencia en redes, telecomunicaciones y ciberseguridad.</p>
@@ -159,6 +153,7 @@
     <img src="img/mascota.png" alt="Mascota Nexi" class="section-image" />
   </section>
 
+  <!-- MISIÓN Y VISIÓN -->
   <section id="misionvision" class="content">
     <h2>Misión</h2>
     <p>Ofrecer altos niveles de calidad, seguridad, estabilidad y escalabilidad para impulsar a nuestros clientes a digitalizarse, optimizar su conectividad y facilitar su crecimiento y eficacia operativa.</p>
@@ -170,19 +165,32 @@
     <img src="img/mision-vision.jpg" alt="Misión y Visión" class="section-image" />
   </section>
 
-  <section id="objetivos" class="content">
-    <h2>Objetivo General</h2>
-    <p>Convertirnos en la empresa líder en soluciones de conectividad y redes en el país, proporcionando servicios de alta calidad, ampliando nuestra cobertura, incrementando la satisfacción del cliente y garantizando la seguridad mediante la innovación tecnológica.</p>
-    <h2>Objetivos Específicos</h2>
+  <!-- SERVICIOS -->
+  <section id="servicios" class="content">
+    <h2>Servicios</h2>
+    <p>En CCCNet ofrecemos servicios de:</p>
     <ul>
-      <li>Expandir la cobertura de la red hacia áreas rurales.</li>
-      <li>Optimizar la calidad del servicio con tecnología y mantenimiento regular.</li>
-      <li>Aumentar ventas en un 20% mediante campañas de marketing y alianzas.</li>
-      <li>Mejorar la seguridad de red y reducir incidentes en un 20% en 15 meses.</li>
+      <li>Diseño y configuración de redes</li>
+      <li>Instalación de infraestructura tecnológica</li>
+      <li>Consultoría en ciberseguridad</li>
+      <li>Soporte técnico especializado</li>
     </ul>
-    <img src="img/objetivos.jpg" alt="Objetivos empresariales" class="section-image" />
+    <img src="img/servicios.jpg" alt="Servicios CCCNet" class="section-image" />
   </section>
 
+  <!-- CONTACTO -->
+  <section id="contacto" class="content">
+    <h2>Contáctanos</h2>
+    <form id="contactForm">
+      <input type="text" name="nombre" id="nombre" placeholder="Tu nombre" required />
+      <input type="email" name="correo" id="correo" placeholder="Tu correo electrónico" required />
+      <textarea name="mensaje" id="mensaje" rows="5" placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+      <p id="formMessage" style="margin-top: 1em; color: green; font-weight: bold;"></p>
+    </form>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
   <footer>
     &copy; 2025 CCCNet. Todos los derechos reservados.
     <div class="social-icons">
@@ -193,6 +201,7 @@
     </div>
   </footer>
 
+  <!-- SCRIPT DE FORMULARIO -->
   <script>
     document.getElementById("contactForm").addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -240,3 +249,4 @@
   </script>
 </body>
 </html>
+
