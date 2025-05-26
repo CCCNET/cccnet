@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CCCNet</title>
+  <title>CCCNet</title>  
 
   <!-- Fuente moderna -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
@@ -12,6 +12,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
+    .small-image {
+  max-width: 50%;
+}
+
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
@@ -106,6 +110,62 @@
     form button:hover {
       background-color: #a58e2a;
     }
+
+    /* Mascota flotante */
+    #nexi-mascota {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      cursor: pointer;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    #nexi-mascota img {
+      width: 70px;
+      height: auto;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    #nexi-mascota img:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0px); }
+      50%  { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Globo de diálogo */
+    #nexi-dialogo {
+      position: absolute;
+      bottom: 80px;
+      right: 90px;
+      background-color: #fff;
+      border: 2px solid #bfa53a;
+      padding: 10px 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 200px;
+      font-size: 14px;
+      line-height: 1.4;
+      transition: opacity 0.5s ease-in-out;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 10000;
+    }
+
+    #nexi-dialogo::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      right: 20px;
+      border-width: 10px 10px 0;
+      border-style: solid;
+      border-color: #fff transparent transparent transparent;
+    }
   </style>
 
   <script>
@@ -116,6 +176,26 @@
     }
 
     window.onload = () => showSection('inicio');
+
+    function hablarConNexi() {
+      const frases = [
+        "¡Hola! ¿Ya conoces nuestros servicios de conectividad?",
+        "En CCCNet, conectamos tu negocio con el mundo digital.",
+        "¿Necesitas ayuda con redes o ciberseguridad? ¡Estoy aquí!",
+        "Soy Nexi, tu guía digital. ¡Juntos hacemos una red más fuerte!",
+        "¡No olvides revisar nuestra sección de servicios!"
+      ];
+      const random = Math.floor(Math.random() * frases.length);
+      const mensaje = frases[random];
+
+      const dialogo = document.getElementById("nexi-dialogo");
+      dialogo.textContent = mensaje;
+      dialogo.style.opacity = 1;
+
+      setTimeout(() => {
+        dialogo.style.opacity = 0;
+      }, 5000);
+    }
   </script>
 </head>
 <body>
@@ -131,15 +211,12 @@
     <a href="#" onclick="showSection('contacto')">Contacto</a>
   </nav>
 
-  <!-- INICIO -->
   <section id="inicio" class="content active">
     <h1>Bienvenido a CCCNet</h1>
-    <p>Somos líderes en soluciones de conectividad, redes e infraestructura tecnológica. Nuestra pasión es conectar personas, empresas y comunidades a través de redes seguras, estables y modernas.</p>
-    <p>Explora nuestras secciones para conocer más sobre nosotros.</p>
+    <p>Somos líderes en soluciones de conectividad, redes e infraestructura tecnológica.</p>
     <img src="img/conectividad.jpg" alt="Conectividad de redes" class="section-image" />
   </section>
 
-  <!-- QUIÉNES SOMOS -->
   <section id="quienes" class="content">
     <h2>¿Quiénes Somos?</h2>
     <p>CCCNet es una empresa tecnológica especializada en conectividad. Nuestro equipo está compuesto por profesionales con amplia experiencia en redes, telecomunicaciones y ciberseguridad.</p>
@@ -150,10 +227,10 @@
     <p><strong>Nexi</strong> es nuestro lobo tecnológico. Ágil y elegante, con pelaje amarillo brillante, detalles en blanco y negro, ojos en forma de circuitos, cinturón de herramientas digitales y una cola con luces LED que se iluminan al resolver problemas de red.</p>
     <p>Viste un chaleco futurista negro con el logo de la empresa y lo acompaña un pequeño dron. ¡Él representa nuestro lema!</p>
     <p style="font-weight:bold; color:#bfa53a;">"Conectamos tu negocio con el mundo digital"</p>
-    <img src="img/mascota.png" alt="Mascota Nexi" class="section-image" />
+    <img src="img/mascota.png" alt="Mascota Nexi" class="section-image small-image" />
+
   </section>
 
-  <!-- MISIÓN Y VISIÓN -->
   <section id="misionvision" class="content">
     <h2>Misión</h2>
     <p>Ofrecer altos niveles de calidad, seguridad, estabilidad y escalabilidad para impulsar a nuestros clientes a digitalizarse, optimizar su conectividad y facilitar su crecimiento y eficacia operativa.</p>
@@ -162,13 +239,12 @@
     <h2>Visión</h2>
     <p>Ser reconocida por generar soluciones innovadoras de redes, conectando de la mejor manera a las personas, empresas y tecnologías para proporcionar la mejor red.</p>
     <p>Visualizamos un futuro donde todas las regiones del país, tanto urbanas como rurales, puedan acceder a una red eficiente, segura y moderna. Queremos ser la referencia nacional en servicios de conectividad, consolidando alianzas estratégicas, desarrollando talento humano especializado y promoviendo un crecimiento tecnológico sostenible.</p>
-    <img src="img/mision-vision.jpg" alt="Misión y Visión" class="section-image" />
+    <img src="img/mision-vision.jpg" alt="Misión y Visión" class="section-image small-image" />
+
   </section>
 
-  <!-- SERVICIOS -->
   <section id="servicios" class="content">
     <h2>Servicios</h2>
-    <p>En CCCNet ofrecemos servicios de:</p>
     <ul>
       <li>Diseño y configuración de redes</li>
       <li>Instalación de infraestructura tecnológica</li>
@@ -178,7 +254,6 @@
     <img src="img/servicios.jpg" alt="Servicios CCCNet" class="section-image" />
   </section>
 
-  <!-- CONTACTO -->
   <section id="contacto" class="content">
     <h2>Contáctanos</h2>
     <form id="contactForm">
@@ -190,7 +265,6 @@
     </form>
   </section>
 
-  <!-- PIE DE PÁGINA -->
   <footer>
     &copy; 2025 CCCNet. Todos los derechos reservados.
     <div class="social-icons">
@@ -201,52 +275,13 @@
     </div>
   </footer>
 
-  <!-- SCRIPT DE FORMULARIO -->
-  <script>
-    document.getElementById("contactForm").addEventListener("submit", async function (e) {
-      e.preventDefault();
+  <!-- Mascota flotante con diálogo -->
+  <div id="nexi-mascota" onclick="hablarConNexi()">
+    <img src="img/mascota.png" alt="Nexi" />
+    <div id="nexi-dialogo"></div>
+  </div>
 
-      const nombre = document.getElementById("nombre").value.trim();
-      const correo = document.getElementById("correo").value.trim();
-      const mensaje = document.getElementById("mensaje").value.trim();
-      const formMessage = document.getElementById("formMessage");
-
-      if (!nombre || !correo || !mensaje) {
-        formMessage.style.color = "red";
-        formMessage.textContent = "Por favor, completa todos los campos.";
-        return;
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(correo)) {
-        formMessage.style.color = "red";
-        formMessage.textContent = "Por favor, ingresa un correo válido.";
-        return;
-      }
-
-      try {
-        const response = await fetch("https://formspree.io/f/xqaqbwjw", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ nombre, correo, mensaje })
-        });
-
-        if (response.ok) {
-          formMessage.style.color = "green";
-          formMessage.textContent = "¡Gracias! Tu mensaje ha sido enviado correctamente.";
-          document.getElementById("contactForm").reset();
-        } else {
-          formMessage.style.color = "red";
-          formMessage.textContent = "Ocurrió un error al enviar el mensaje. Intenta nuevamente.";
-        }
-      } catch (error) {
-        formMessage.style.color = "red";
-        formMessage.textContent = "Error de red. Por favor, revisa tu conexión.";
-      }
-    });
-  </script>
 </body>
 </html>
+
 
