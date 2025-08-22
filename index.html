@@ -20,12 +20,18 @@
       text-align: center;
     }
     #logo {
-      position: absolute;
+      position: absolute; 
       right: 1em;
       top: 1em;
       height: 105px;
     }
-
+    #mision img,
+#vision img,
+#objetivos img,
+#justificacion img {
+  display: block;
+  margin: 1em auto;
+}
     nav {
       background-color: #bfa53a;
       padding: 1em;
@@ -76,13 +82,11 @@
     .active {
       display: block;
     }
-
     .foxi-container {
       position: relative;
       float: right;
       margin-left: 2em;
     }
-
     .foxi {
       width: 180px;
       height: 180px;
@@ -96,15 +100,12 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-
     .foxi:hover {
       transform: scale(1.05);
     }
-
     .foxi img {
       width: 100%;
     }
-
     .bubble {
       position: absolute;
       top: -60px;
@@ -119,12 +120,10 @@
       box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
       z-index: 10;
     }
-
     form {
       max-width: 500px;
       margin: 2em auto;
     }
-
     input, textarea, button {
       width: 100%;
       padding: 0.8em;
@@ -132,14 +131,85 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
-
     footer {
       background-color: #000;
       color: white;
       text-align: center;
       padding: 1em;
     }
+    /* Estilo tarjetas estratégicas */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5em;
+      margin-top: 2em;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1em;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card img {
+      max-width: 100%;
+      height: 140px;
+      object-fit: contain;
+    }
+    .card button {
+      margin-top: 0.5em;
+      background-color: #bfa53a;
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+  .card-servicio {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5em;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    flex: 1 1 300px;
+    max-width: 350px;
+    text-align: left;
+  }
+  .card-servicio h3 {
+    color: #00695c;
+    margin-bottom: 0.5em;
+  }
+  .card-servicio ul {
+    padding-left: 1.2em;
+    list-style: disc;
+    color: #444;
+  }
+  .card-servicio p {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+  footer {
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 0.5em 0; 
+  font-size: 0.9em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+body {
+  margin-bottom: 180px; 
+}
+
+</style>
   </style>
+
 </head>
 <body>
   <header>
@@ -180,6 +250,7 @@
     </div>
   </nav>
 
+  <!-- Inicio -->
   <section id="inicio" class="content active">
     <div style="display: flex; align-items: center;">
       <form id="contact-form">
@@ -188,7 +259,6 @@
         <textarea name="message" placeholder="Tu mensaje..." required></textarea>
         <button type="submit">Enviar mensaje</button>
       </form>
-
       <div class="foxi-container" onclick="foxiTalk()">
         <div class="foxi">
           <img src="img/mascota.png" alt="Foxi asistente virtual" />
@@ -198,33 +268,172 @@
     </div>
   </section>
 
-  <!-- Otras secciones -->
-  <section id="mision" class="content">
-  <h2>Misión</h2>
-  <p>Ofrecer altos niveles de calidad, seguridad, estabilidad y escalabilidad para impulsar a nuestros clientes a digitalizarse, optimizar su conectividad y facilitar su crecimiento y eficacia operativa.</p>
-  <p>En CCCNet creemos que la conectividad es una herramienta clave para el desarrollo empresarial y social. Nuestra misión se basa en brindar soluciones personalizadas que respondan a las necesidades tecnológicas actuales, con soporte técnico de excelencia, atención cercana y un enfoque constante en la innovación.</p>
-  <img src="img/Mision.jpg" id="Mision" alt="Misión CCCNet" style="width:50%; margin-top:1em;"/>
+ <section id="servicio" class="content" style="padding: 3em 0; background-color: #f5faff;">
+  <div class="container" style="max-width: 1200px; margin: auto;">
+
+    <h2 style="font-size: 2.5em; color: #004d40; text-align: center; margin-bottom: 0.5em;">
+      Nuestros Servicios
+    </h2>
+    <p style="font-size: 1.2em; text-align: center; margin-bottom: 2em; color: #555;">
+      Soluciones adaptadas a tus necesidades: instalación, mantenimiento y soporte integral de redes.
+    </p>
+
+    <!-- Paquetes (Fila 1) -->
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; justify-items: center;">
+      
+      <div class="card-servicio">
+        <h3> Solo Mantenimiento</h3>
+        <p><strong>Desde:</strong> $350.000 COP</p>
+        <ul>
+          <li>Revisión y diagnóstico completo de la red.</li>
+          <li>Actualización de software y limpieza de equipos.</li>
+          <li>Configuración de seguridad (firewall, accesos).</li>
+          <li>Resolución de problemas de conectividad.</li>
+          <li>Soporte técnico (remoto y/o en sitio).</li>
+          <li>Informe detallado del estado de tu red.</li>
+        </ul>
+      </div>
+
+      <div class="card-servicio">
+        <h3> Solo Instalación</h3>
+        <p><strong>Desde:</strong> $650.000 COP</p>
+        <ul>
+          <li>Diseño y planificación personalizada de la red.</li>
+          <li>Suministro e instalación de equipos y cableado.</li>
+          <li>Configuración inicial y seguridad perimetral.</li>
+          <li>Pruebas exhaustivas de rendimiento.</li>
+          <li>Documentación completa y garantía de 90 días.</li>
+        </ul>
+      </div>
+
+      <div class="card-servicio">
+        <h3>Instalación y Mantenimiento</h3>
+        <p><strong>Desde:</strong> $850.000 COP</p>
+        <ul>
+          <li>Incluye beneficios de Instalación y Mantenimiento.</li>
+          <li>Plan preventivo trimestral.</li>
+          <li>Precios preferenciales en ampliaciones.</li>
+          <li>Soporte prioritario y atención personalizada.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 3em; font-size: 2em; color: #004d40; text-align: center;">
+      Membresías: Conectividad Sin Interrupciones
+    </h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; justify-items: center; margin-top: 1em;">
+      
+      <div class="card-servicio">
+        <h3>🥉 Gold (Básica)</h3>
+        <p><strong>Mensual:</strong> $200.000 COP<br><strong>Anual:</strong> $2.160.000 COP</p>
+        <ul>
+          <li>Soporte remoto ilimitado (2h mensuales).</li>
+          <li>1 mantenimiento preventivo anual en sitio.</li>
+          <li>Diagnóstico remoto de red.</li>
+          <li>Prioridad de respuesta: 8h hábiles.</li>
+          <li>5% de descuento en instalaciones.</li>
+        </ul>
+      </div>
+
+      <div class="card-servicio">
+        <h3>🥈 Platinum (Premium)</h3>
+        <p><strong>Mensual:</strong> $450.000 COP<br><strong>Anual:</strong> $4.590.000 COP</p>
+        <ul>
+          <li>Soporte remoto y en sitio ilimitado (5h en sitio).</li>
+          <li>2 mantenimientos preventivos anuales en sitio.</li>
+          <li>Monitoreo proactivo 24/7.</li>
+          <li>Prioridad de respuesta: 4h hábiles.</li>
+          <li>10% de descuento en instalaciones.</li>
+        </ul>
+      </div>
+
+      <div class="card-servicio">
+        <h3>🥇 Diamond (VIP)</h3>
+        <p><strong>Mensual:</strong> $850.000 COP<br><strong>Anual:</strong> $8.160.000 COP</p>
+        <ul>
+          <li>Soporte remoto y en sitio ilimitado y prioritario.</li>
+          <li>Mantenimientos preventivos trimestrales.</li>
+          <li>Monitoreo 24/7 con informes mensuales.</li>
+          <li>Servicio Express incluido (&lt; 2h).</li>
+          <li>15% de descuento en instalaciones.</li>
+        </ul>
+      </div>
+    </div>
+
+    
+  </div>
 </section>
-  
-  <section id="vision" class="content">
-  <h2>Visión</h2>
-  <p>Ser reconocida por generar soluciones innovadoras de redes, conectando de la mejor manera a las personas, empresas y tecnologías para proporcionar la mejor red.</p>
-  <p>Visualizamos un futuro donde todas las regiones del país, tanto urbanas como rurales, puedan acceder a una red eficiente, segura y moderna. Queremos ser la referencia nacional en servicios de conectividad, consolidando alianzas estratégicas, desarrollando talento humano especializado y promoviendo un crecimiento tecnológico sostenible.</p>
-  <img src="img/vision.jpg" id="vision-img" alt="Visión CCCNet" style="width:50%; margin-top:1em;"/>
+
+<section id="mision" class="content">
+  <h2>Mision</h2>
+  <p>
+    Ofrecer altos niveles de calidad, seguridad, estabilidad y escalabilidad para impulsar a nuestros clientes a digitalizarse, optimizar su conectividad y facilitar su crecimiento y eficacia operativa.
+  </p>
+  <p>
+    En CCCNet creemos que la conectividad es una herramienta clave para el desarrollo empresarial y social. Nuestra misión se basa en brindar soluciones personalizadas que respondan a las necesidades tecnológicas actuales, con soporte técnico de excelencia, atención cercana y un enfoque constante en la innovación.
+  </p>
+  <img src="img/mision.png" id="Mision" alt="Misión CCCNet"
+       style="width:50%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
 </section>
 
-  <section id="objetivos" class="content"><h2>Objetivos</h2><h3>Objetivo general</h3><p>Brindar soluciones integrales en instalación, mantenimiento y soporte de redes tecnológicas, garantizando calidad, confianza y eficiencia para clientes residenciales y empresariales en Cajicá y sus alrededores.
-</p><h3>Objetivos especificos</h3><p>Fidelizar y ampliar nuestra red de clientes, ofreciendo atención personalizada, tiempos de respuesta rápidos y un servicio técnico altamente calificado. </p> <p></p>Mantener altos estándares de calidad y actualización tecnológica, mediante certificaciones, formación continua del equipo técnico y alianzas estratégicas con marcas reconocidas.<p>Impulsar el crecimiento sostenible de la empresa, expandiendo nuestras operaciones hacia ciudades cercanas como Zipaquirá y Chía, y diversificando nuestros servicios tecnológicos.</p> </section>
+<section id="vision" class="content">
+  <h2>Vision</h2>
+  <p>
+    Ser reconocida por generar soluciones innovadoras de redes, conectando de la mejor manera a las personas, empresas y tecnologías para proporcionar la mejor red.
+  </p>
+  <p>
+    Visualizamos un futuro donde todas las regiones del país, tanto urbanas como rurales, puedan acceder a una red eficiente, segura y moderna. Queremos ser la referencia nacional en servicios de conectividad, consolidando alianzas estratégicas, desarrollando talento humano especializado y promoviendo un crecimiento tecnológico sostenible.
+  </p>
+  <img src="img/vision.png" id="vision-img" alt="Visión CCCNet"
+       style="width:50%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
+</section>
 
-  <section id="justificacion" class="content"><h2>Justificación</h2><p>La empresa surge ante la creciente demanda de soluciones tecnológicas confiables en el área de redes, conectividad y soporte técnico, tanto a nivel residencial como empresarial.</p><p> En un entorno cada vez más digitalizado, donde la conectividad es clave para el funcionamiento de hogares y negocios, se hace necesario contar con proveedores calificados que garanticen calidad, rapidez y eficiencia. Además, el desarrollo en municipios como Cajicá, Zipaquirá y Chía representa una oportunidad para ofrecer servicios integrales con alto estándar profesional, posicionándose como una marca de referencia en la región.</p></section>
+<section id="objetivos" class="content">
+  <h2>Objetivos</h2>
+  <h3>Objetivo general</h3>
+  <p>
+    Brindar soluciones integrales en instalación, mantenimiento y soporte de redes tecnológicas, garantizando calidad, confianza y eficiencia para clientes residenciales y empresariales en Cajicá y sus alrededores.
+  </p>
 
-  <section id="servicio" class="content"><h2>Servicio</h2><p>Contenido del servicio...</p></section>
+  <h3>Objetivos especificos</h3>
+  <p>
+    Fidelizar y ampliar nuestra red de clientes, ofreciendo atención personalizada, tiempos de respuesta rápidos y un servicio técnico altamente calificado.
+  </p>
+  <p>
+    Mantener altos estándares de calidad y actualización tecnológica, mediante certificaciones, formación continua del equipo técnico y alianzas estratégicas con marcas reconocidas.
+  </p>
+  <p>
+    Impulsar el crecimiento sostenible de la empresa, expandiendo nuestras operaciones hacia ciudades cercanas como Zipaquirá y Chía, y diversificando nuestros servicios tecnológicos.
+  </p>
+  <img src="img/objetivos.png" id="objetivos-img" alt="objetivos CCCNet"
+       style="width:50%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
+</section>
 
-  <section id="ventajas" class="content"><h2>Ventajas</h2><p>
+<section id="justificacion" class="content">
+  <h2>Justificación</h2>
+  <p>
+    La empresa surge ante la creciente demanda de soluciones tecnológicas confiables en el área de redes, conectividad y soporte técnico, tanto a nivel residencial como empresarial.
+  </p>
+  <p>
+    En un entorno cada vez más digitalizado, donde la conectividad es clave para el funcionamiento de hogares y negocios, se hace necesario contar con proveedores calificados que garanticen calidad, rapidez y eficiencia. Además, el desarrollo en municipios como Cajicá, Zipaquirá y Chía representa una oportunidad para ofrecer servicios integrales con alto estándar profesional, posicionándose como una marca de referencia en la región.
+  </p>
+  <img src="img/justificacion.png" id="justificacion-img" alt="Justificación CCCNet"
+       style="width:50%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
+</section>
+
+<section id="servicio" class="content">
+  <h2>Servicio</h2>
+  <p>Contenido del servicio...</p>
+</section>
+
+<section id="ventajas" class="content">
+  <h2>Ventajas</h2>
+  <p>
     En nuestra empresa entendemos las necesidades reales de las microempresas: presupuestos ajustados, tiempos de respuesta rápidos y un servicio confiable que no complique más de lo que soluciona. Aunque estamos comenzando y aún no contamos con certificaciones formales, compensamos con compromiso, responsabilidad y atención cercana en cada proyecto.
   </p>
 
   <h3> Ventajas que nos diferencian:</h3>
+  <ul>
     <li><strong>Atención personalizada:</strong> Soluciones reales que se ajustan a tus necesidades, sin costos innecesarios.</li>
     <li><strong>Precios justos y claros:</strong> Tarifas pensadas para emprendedores, con presupuestos honestos y sin sorpresas.</li>
     <li><strong>Respuesta rápida:</strong> Atendemos tus solicitudes en el menor tiempo posible para evitar pérdidas en tu negocio.</li>
@@ -232,79 +441,121 @@
     <li><strong>Acompañamiento constante:</strong> Después del servicio, seguimos contigo para asegurarnos de que todo funcione.</li>
     <li><strong>Cercanía local:</strong> Estamos en Cajicá y alrededores, siempre disponibles y cerca de tu negocio.</li>
   </ul>
-
   <p>
     Queremos crecer contigo. Cada proyecto es una oportunidad para demostrar que la responsabilidad, la buena actitud y el deseo de aprender también son garantía de un buen servicio.
-  </p></section>
+  </p>
+</section>
 
-  <section id="organigrama" class="content"><h2>Organigrama</h2><p>Contenido del organigrama...</p></section>
+<section id="organigrama" class="content">
+  <h2>Organigrama</h2>
+  <p>Contenido del organigrama...</p>
+</section>
 
-  <section id="sostenibilidad" class="content"><h2>Sostenibilidad</h2><p>Contenido de sostenibilidad...</p></section>
+<section id="sostenibilidad" class="content">
+  <h2> Sostenibilidad Económica</h2>
+  <p>
+    Detrás de cada servicio hay un proyecto sólido respaldado por la confianza de 
+    <strong>cinco inversionistas</strong> que creyeron en la idea de ofrecer mantenimiento de redes con calidad 
+    y estabilidad a largo plazo. Ese respaldo inicial permitió construir una base financiera fuerte, invertir 
+    en tecnología, capacitar al equipo y asegurar que cada cliente reciba un servicio confiable.
+  </p>
 
-  <section id="responsabilidad" class="content"><h2>Responsabilidad Social</h2><p>Contenido de responsabilidad social...</p></section>
+  <ul>
+    <li><strong>Operaciones estables:</strong> Garantizan continuidad y cumplimiento sin importar los cambios del mercado.</li>
+    <li><strong>Inversiones inteligentes:</strong> Priorizan equipos de calidad y procesos eficientes.</li>
+    <li><strong>Crecimiento planificado:</strong> Expansión y mejora del servicio sin perder el control de costos.</li>
+    <li><strong>Seguridad financiera:</strong> Respalda cada contrato y asegura que el servicio no se detenga.</li>
+  </ul>
 
-  <footer>
-    <p>&copy; 2025 CCCNet. Todos los derechos reservados.</p>
-    <p>
-      <a href="mailto:ccc.net2025@gmail.com" style="color:white;">ccc.net2025@gmail.com</a>
-    </p>
-    <p>
-      <a href="https://www.instagram.com/cccnet2025/" target="_blank" style="color:white;">Instagram</a> |
-      <a href="https://www.tiktok.com/@cccnet_" target="_blank" style="color:white;">TikTok</a> |
-      <a href="https://www.youtube.com/channel/UC8txwMAug9y4Uq35Seyf55g" target="_blank" style="color:white;">YouTube</a>
-    </p>
-  </footer>
+  <p>
+    Cuando hay una estructura económica sólida, el mantenimiento de redes no solo resuelve problemas, 
+    sino que genera confianza y tranquilidad a largo plazo
+  </p>
+</section>
 
-  <script>
-    let bubbleTimeout;
+<section id="responsabilidad" class="content">
+  
+  <h2>Responsabilidad Social</h2>
+  
+  <p>
+    Nuestro compromiso va más allá de ofrecer servicios de mantenimiento de redes: buscamos ser parte del cambio social.
+    Creemos que la conectividad es una herramienta poderosa para cerrar brechas y abrir oportunidades, especialmente en el ámbito educativo.
+  </p>
 
-    function showSection(id) {
-      document.querySelectorAll('.content').forEach(section => {
-        section.classList.remove('active');
-      });
-      document.getElementById(id).classList.add('active');
-    }
+  <p>
+    Por eso, desarrollamos un proyecto de responsabilidad social que se enfoca en 
+    apoyar a colegios de escasos recursos mejorando su acceso a internet y fortaleciendo su infraestructura tecnológica.
+  </p>
 
-    function foxiTalk() {
-      const bubble = document.getElementById("foxi-bubble");
-      const messages = [
-        "¡Hola! ¿Necesitas ayuda?",
-        "Bienvenido a CCCNet 😄",
-        "Estoy para ayudarte.",
-        "No hay red que se me resista 🦊",
-        "Escríbeme en el formulario 📩"
-      ];
-      const msg = messages[Math.floor(Math.random() * messages.length)];
-      foxiSay(msg);
-    }
+  <ul style="color: #555; line-height: 1.6; margin-top: 1em; padding-left: 1.2em;">
+    <li><strong>Instalación y mejora de redes:</strong> en instituciones con limitaciones económicas.</li>
+    <li><strong>Donación y reutilización de equipos:</strong> para ampliar el acceso a la tecnología.</li>
+    <li><strong>Mantenimiento sin costo:</strong> en casos especiales para garantizar que la conexión se mantenga.</li>
+  </ul>
 
-    function foxiSay(texto) {
-      const bubble = document.getElementById("foxi-bubble");
-      if (!bubble) return;
-      bubble.textContent = texto;
-      bubble.style.opacity = "1";
+  <p>
+    Porque para nosotros, conectar redes significa conectar personas, sueños y posibilidades.
+  </p>
+</section>
 
-      if (bubbleTimeout) clearTimeout(bubbleTimeout);
-      bubbleTimeout = setTimeout(() => {
-        bubble.style.opacity = "0";
-      }, 6000);
-    }
 
-    window.onload = () => showSection('inicio');
+<footer>
+  <p>&copy; 2025 CCCNet. Todos los derechos reservados.</p>
+  <p>
+    <a href="mailto:ccc.net2025@gmail.com" style="color:white;">ccc.net2025@gmail.com</a>
+  </p>
+  <p>
+    <a href="https://www.instagram.com/cccnet2025/" target="_blank" style="color:white;">Instagram</a> |
+    <a href="https://www.tiktok.com/@cccnet_" target="_blank" style="color:white;">TikTok</a> |
+    <a href="https://www.youtube.com/channel/UC8txwMAug9y4Uq35Seyf55g" target="_blank" style="color:white;">YouTube</a>
+  </p>
+</footer>
 
-    // FORMULARIO Formspree
-    const form = document.getElementById("contact-form");
+<script>
+  let bubbleTimeout;
+
+  function showSection(id) {
+    document.querySelectorAll('.content').forEach(section => {
+      section.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+  }
+
+  function foxiTalk() {
+    const messages = [
+      "¡Hola! ¿Necesitas ayuda?",
+      "Bienvenido a CCCNet 😄",
+      "Estoy para ayudarte.",
+      "No hay red que se me resista 🦊",
+      "Escríbeme en el formulario 📩"
+    ];
+    foxiSay(messages[Math.floor(Math.random() * messages.length)]);
+  }
+
+  function foxiSay(texto) {
+    const bubble = document.getElementById("foxi-bubble");
+    if (!bubble) return;
+    bubble.textContent = texto;
+    bubble.style.opacity = "1";
+    if (bubbleTimeout) clearTimeout(bubbleTimeout);
+    bubbleTimeout = setTimeout(() => {
+      bubble.style.opacity = "0";
+    }, 6000);
+  }
+
+  window.onload = () => showSection('inicio');
+
+  const form = document.getElementById("contact-form");
+  if (form) {
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
       const formData = new FormData(form);
-
       try {
         const response = await fetch("https://formspree.io/f/xqaqbwjw", {
           method: "POST",
           body: formData,
           headers: { Accept: "application/json" }
         });
-
         if (response.ok) {
           form.reset();
           form.style.display = "none";
@@ -316,8 +567,7 @@
         foxiSay("Ups, no se pudo enviar.");
       }
     });
-  </script>
-</body>
-</html>
+  }
+</script>
 </body>
 </html>
