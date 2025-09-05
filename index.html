@@ -23,7 +23,7 @@
       position: absolute; 
       right: 1em;
       top: 1em;
-      height: 105px;
+      height: 130px;
     }
     #mision img,
 #vision img,
@@ -136,7 +136,68 @@
       color: white;
       text-align: center;
       padding: 1em;
+
     }
+  .foxi-container {
+  position: fixed;
+  right: 20px;
+  bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+}
+
+.bubble {
+  margin-bottom: 10px; /* espacio entre el globo y la mascota */
+  background-color: #000;
+  color: white;
+  border-radius: 14px;
+  padding: 1em 1.5em;
+  max-width: 280px;
+  font-size: 1.1em;
+  line-height: 1.5;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 2px 2px 14px rgba(0,0,0,0.45);
+}
+
+/* cuando aparece */
+.bubble.show {
+  opacity: 1;
+  transform: translateY(-8px);
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;  /* la flecha apunta hacia Foxi */
+  left: 30px;
+  border-width: 12px;
+  border-style: solid;
+  border-color: #000 transparent transparent transparent;
+}
+
+.foxi {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #fff3cd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.foxi:hover {
+  transform: scale(1.05);
+}
+.foxi img {
+  width: 100%;
+}
     /* Estilo tarjetas estratégicas */
     .grid {
       display: grid;
@@ -248,24 +309,22 @@ body {
         <a href="#" onclick="showSection('responsabilidad')">Responsabilidad Social</a>
       </div>
     </div>
+      <div class="dropdown">
+      <button>Contactanos</button>
+      <div class="dropdown-content">
+        <a href="#" onclick="showSection('Contacto')">Contacto</a>
+      </div>
+    </div>
   </nav>
 
   <!-- Inicio -->
   <section id="inicio" class="content active">
-    <div style="display: flex; align-items: center;">
-      <form id="contact-form">
-        <input type="text" name="name" placeholder="Tu nombre" required />
-        <input type="email" name="email" placeholder="Tu correo" required />
-        <textarea name="message" placeholder="Tu mensaje..." required></textarea>
-        <button type="submit">Enviar mensaje</button>
-      </form>
-      <div class="foxi-container" onclick="foxiTalk()">
-        <div class="foxi">
-          <img src="img/mascota.png" alt="Foxi asistente virtual" />
-        </div>
-        <div class="bubble" id="foxi-bubble"></div>
-      </div>
-    </div>
+      <h2>¿Qienes somos?</h2>
+      <p>CCCNet es una empresa formada por 5 jovenes emprendedores que buscan ayudar a la comunidad por medio del mantenimiento de redes brindar un servicio que cumpla con los requerimentos del cliente</p>
+      <h2>¿Por que creamos esta empresa?</h2>
+      <p>Creamos esta empresa para poder ayudar a personas que se sienten o se han sentido inconforme cuando deciden hacer dicho mantenimiento </p>
+     
+    
   </section>
 
  <section id="servicio" class="content" style="padding: 3em 0; background-color: #f5faff;">
@@ -448,7 +507,9 @@ body {
 
 <section id="organigrama" class="content">
   <h2>Organigrama</h2>
-  <p>Contenido del organigrama...</p>
+  <p>Aqui podemos observar nustro organigrama que define los puestos y las personas encargada de cada trabajo</p>
+ <img src="img/organigrama.png" id="organigrama-img" alt="organigrama CCCNet"
+       style="width:80%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
 </section>
 
 <section id="sostenibilidad" class="content">
@@ -497,7 +558,17 @@ body {
     Porque para nosotros, conectar redes significa conectar personas, sueños y posibilidades.
   </p>
 </section>
-
+<section id="Contacto" class="content">
+<h2>Contactanos</h2>
+<div style="display: flex; align-items: center;">
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Tu nombre" required />
+        <input type="email" name="email" placeholder="Tu correo" required />
+        <textarea name="message" placeholder="Tu mensaje..." required></textarea>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
 
 <footer>
   <p>&copy; 2025 CCCNet. Todos los derechos reservados.</p>
@@ -509,7 +580,15 @@ body {
     <a href="https://www.tiktok.com/@cccnet_" target="_blank" style="color:white;">TikTok</a> |
     <a href="https://www.youtube.com/channel/UC8txwMAug9y4Uq35Seyf55g" target="_blank" style="color:white;">YouTube</a>
   </p>
+<div class="foxi-container" onclick="foxiTalk()">
+  <div class="bubble" id="foxi-bubble"></div> <!-- EL GLOBO PRIMERO -->
+  <div class="foxi">
+    <img src="img/mascota.png" alt="Foxi asistente virtual" />
+  </div>
+</div>
+    
 </footer>
+
 
 <script>
   let bubbleTimeout;
