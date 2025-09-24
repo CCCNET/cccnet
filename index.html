@@ -6,139 +6,119 @@
   <title>CCCNet</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background-color: #f4f4f4;
-    }
-    header {
-      background-color: #000;
-      color: white;
-      padding: 1em;
-      position: relative;
-      text-align: center;
-    }
-    #logo {
-      position: absolute; 
-      right: 1em;
-      top: 1em;
-      height: 130px;
-    }
-    #mision img,
-#vision img,
-#objetivos img,
-#justificacion img {
-  display: block;
-  margin: 1em auto;
+<style>
+/* 🎨 Variables de color */
+:root {
+  --dorado: #FFD700;
+  --dorado-grad: linear-gradient(135deg, #FFD700, #FFA500, #FFD700, #FFF5CC);
+  --negro: #111;
+  --blanco: #f5f5f5;
 }
-    nav {
-      background-color: #bfa53a;
-      padding: 1em;
-      text-align: center;
-    }
-    .dropdown {
-      display: inline-block;
-      position: relative;
-      margin: 0 1em;
-    }
-    .dropdown button {
-      background-color: #bfa53a;
-      color: white;
-      border: none;
-      font-weight: bold;
-      padding: 0.5em 1em;
-      cursor: pointer;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: white;
-      color: black;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      z-index: 1;
-    }
-    .dropdown-content a {
-      display: block;
-      padding: 0.5em;
-      color: #333;
-      text-decoration: none;
-    }
-    .dropdown-content a:hover {
-      background-color: #eee;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-    .content {
-      display: none;
-      padding: 2em;
-      max-width: 900px;
-      margin: auto;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .active {
-      display: block;
-    }
-    .foxi-container {
-      position: relative;
-      float: right;
-      margin-left: 2em;
-    }
-    .foxi {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      overflow: hidden;
-      background-color: #fff3cd;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .foxi:hover {
-      transform: scale(1.05);
-    }
-    .foxi img {
-      width: 100%;
-    }
-    .bubble {
-      position: absolute;
-      top: -60px;
-      right: 0;
-      background-color: #dce775;
-      border-radius: 10px;
-      padding: 1em;
-      max-width: 220px;
-      font-weight: bold;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-      z-index: 10;
-    }
-    form {
-      max-width: 500px;
-      margin: 2em auto;
-    }
-    input, textarea, button {
-      width: 100%;
-      padding: 0.8em;
-      margin-bottom: 1em;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    footer {
-      background-color: #000;
-      color: white;
-      text-align: center;
-      padding: 1em;
 
-    }
-  .foxi-container {
+/* 🎨 Estilo general */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+  background: var(--negro);
+  color: var(--blanco);
+}
+
+/* 🏷️ Encabezado */
+header {
+  background-color: #000;
+  color: white(--dorado);
+  padding: 1em;
+  position: relative;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+header {
+  border-bottom: 2px solid #FFD700;
+  padding: 1em;
+  text-align: center;
+  background: #000; /* mantiene el fondo negro */
+}
+#logo {
+  position: absolute; 
+  right: 1em;
+  top: -1.5em;
+  height: 260px;
+}
+
+/* 🔗 Menú */
+nav {
+  background: #000;
+  padding: 1em;
+  text-align: center;
+  border-bottom: 2px solid var(--dorado);
+  box-shadow: 0 2px 15px rgba(255, 215, 0, 0.2);
+}
+.dropdown {
+  display: inline-block;
+  position: relative;
+  margin: 0 1em;
+}
+.dropdown button {
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  background: var(--dorado-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.dropdown button:hover {
+  transform: scale(1.15);
+  text-shadow: 0 0 10px var(--dorado);
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #222;
+  color: var(--blanco);
+  min-width: 180px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.6);
+  z-index: 1;
+  border: 1px solid var(--dorado);
+}
+.dropdown-content a {
+  display: block;
+  padding: 0.5em;
+  color: var(--blanco);
+  text-decoration: none;
+}
+.dropdown-content a:hover {
+  background: var(--dorado-grad);
+  color: #111;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* 📦 Secciones */
+.content {
+  display: none;
+  padding: 2em;
+  max-width: 900px;
+  margin: 2em auto;
+  background: rgba(34, 34, 34, 0.92);
+  border: 2px solid transparent;
+  border-image: var(--dorado-grad) 1;
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+}
+.active {
+  display: block;
+}
+
+/* 🦊 Foxi */
+.foxi-container {
   position: fixed;
   right: 20px;
   bottom: 5px;
@@ -147,48 +127,17 @@
   align-items: center;
   z-index: 999;
 }
-
-.bubble {
-  margin-bottom: 10px; /* espacio entre el globo y la mascota */
-  background-color: #000;
-  color: white;
-  border-radius: 14px;
-  padding: 1em 1.5em;
-  max-width: 280px;
-  font-size: 1.1em;
-  line-height: 1.5;
-  text-align: left;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  box-shadow: 2px 2px 14px rgba(0,0,0,0.45);
-}
-
-/* cuando aparece */
-.bubble.show {
-  opacity: 1;
-  transform: translateY(-8px);
-}
-
-.bubble::after {
-  content: "";
-  position: absolute;
-  bottom: -12px;  /* la flecha apunta hacia Foxi */
-  left: 30px;
-  border-width: 12px;
-  border-style: solid;
-  border-color: #000 transparent transparent transparent;
-}
-
 .foxi {
   width: 180px;
   height: 180px;
   border-radius: 50%;
   overflow: hidden;
-  background-color: #fff3cd;
+  background: #000;
+  border: 3px solid var(--dorado);
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -198,78 +147,160 @@
 .foxi img {
   width: 100%;
 }
-    /* Estilo tarjetas estratégicas */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5em;
-      margin-top: 2em;
-    }
-    .card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 1em;
-      text-align: center;
-      transition: transform 0.2s ease;
-    }
-    .card:hover {
-      transform: scale(1.03);
-    }
-    .card img {
-      max-width: 100%;
-      height: 140px;
-      object-fit: contain;
-    }
-    .card button {
-      margin-top: 0.5em;
-      background-color: #bfa53a;
-      color: white;
-      border: none;
-      padding: 0.5em 1em;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    
-  .card-servicio {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 1.5em;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    flex: 1 1 300px;
-    max-width: 350px;
-    text-align: left;
-  }
-  .card-servicio h3 {
-    color: #00695c;
-    margin-bottom: 0.5em;
-  }
-  .card-servicio ul {
-    padding-left: 1.2em;
-    list-style: disc;
-    color: #444;
-  }
-  .card-servicio p {
-    font-weight: bold;
-    margin-bottom: 0.5em;
-  }
-  footer {
+.bubble {
+  margin-bottom: 10px;
+  background: var(--dorado-grad);
+  color: #111;
+  font-weight: bold;
+  border-radius: 14px;
+  padding: 1em 1.5em;
+  max-width: 280px;
+  font-size: 1.1em;
+  line-height: 1.5;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+.bubble.show {
+  opacity: 1;
+  transform: translateY(-8px);
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 30px;
+  border-width: 12px;
+  border-style: solid;
+  border-color: var(--dorado) transparent transparent transparent;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5em;
+  margin-top: 2em;
+}
+.content.servicios {
+  background: linear-gradient(180deg, #111 0%, #1a1a1a 50%, #111 100%);
+  padding: 3em 1.5em;
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+}
+.card {
+  background: #222;
+  color: var(--blanco);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(255, 215, 0, 0.2);
+  padding: 1em;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+.card img {
+  max-width: 100%;
+  height: 140px;
+  object-fit: contain;
+}
+.card button {
+  margin-top: 0.5em;
+  background: var(--dorado-grad);
+  color: #111;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.card button:hover {
+  transform: scale(1.1);
+}
+
+/* ⚡ Tarjetas de servicio */
+.card-servicio {
+  background: #222;
+  border-radius: 12px;
+  padding: 1.5em;
+  box-shadow: 0 4px 12px rgba(255,215,0,0.15);
+  flex: 1 1 300px;
+  max-width: 350px;
+  text-align: left;
+  color: var(--blanco);
+}
+.card-servicio h3 {
+  background: var(--dorado-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5em;
+}
+.card-servicio ul {
+  padding-left: 1.2em;
+  list-style: disc;
+}
+.card-servicio p {
+  font-weight: bold;
+  color: var(--dorado);
+  margin-bottom: 0.5em;
+}
+
+
+/* 📑 Formularios */
+form {
+  max-width: 500px;
+  margin: 2em auto;
+}
+input, textarea, button {
+  width: 100%;
+  padding: 0.8em;
+  margin-bottom: 1em;
+  border: 1px solid var(--dorado);
+  border-radius: 5px;
+  background: #000;
+  color: var(--blanco);
+}
+input::placeholder, textarea::placeholder {
+  color: #aaa;
+}
+button {
+  background: var(--dorado-grad);
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+}
+
+/* ⚡ Footer */
+footer {
   background-color: #000;
-  color: white;
+  color: var(--dorado);
   text-align: center;
   padding: 0.5em 0; 
   font-size: 0.9em;
-  position: fixed;
+  position: relative; /* ✅ ya no tapa contenido */
   bottom: 0;
   left: 0;
   width: 100%;
+  border-top: 2px solid var(--dorado);
 }
-body {
-  margin-bottom: 180px; 
+footer a {
+  background: var(--dorado-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
 }
-
+footer a:hover {
+  text-shadow: 0 0 10px var(--dorado);
+}
 </style>
-  </style>
+
 
 </head>
 <body>
@@ -323,20 +354,18 @@ body {
       <p>CCCNet es una empresa formada por 5 jovenes emprendedores que buscan ayudar a la comunidad por medio del mantenimiento de redes brindar un servicio que cumpla con los requerimentos del cliente</p>
     <img src="img/nosotros.png" id="nosotros" alt="nosotros"style="width:80%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
       <h2>¿Por que creamos esta empresa?</h2>
-      <p>Creamos esta empresa para poder ayudar a personas que se sienten o se han sentido inconforme cuando deciden hacer dicho mantenimiento </p>
+      <p>Creamos esta empresa para poder ayudar a personas que se sienten o se han sentido inconforme cuando deciden hacer un mantenimiento o instalacion de redes, sabemos que muchas personas quedan inconformes cuando contratan un servicio de red ya que ellos solo les aseguran la señal mas no que funcione correctamente para eso estamos nosotros para optimizar su red al maximo y que el cliente le pueda sacar todo el provecho que se le desea obtener.</p>
      
     
   </section>
 
- <section id="servicio" class="content" style="padding: 3em 0; background-color: #f5faff;">
+ <section id="servicio" class="content servicios" style="padding: 3em 0; background-color: #f5faff;">
   <div class="container" style="max-width: 1200px; margin: auto;">
 
-    <h2 style="font-size: 2.5em; color: #004d40; text-align: center; margin-bottom: 0.5em;">
+    <h2 style="font-size: 2.5em; color: #FFD700; text-align: center; margin-bottom: 0.5em;">
       Nuestros Servicios
     </h2>
-    <p style="font-size: 1.2em; text-align: center; margin-bottom: 2em; color: #555;">
-      Soluciones adaptadas a tus necesidades: instalación, mantenimiento y soporte integral de redes.
-    </p>
+    
 
     <!-- Paquetes (Fila 1) -->
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; justify-items: center;">
@@ -378,13 +407,13 @@ body {
       </div>
     </div>
 
-    <h2 style="margin-top: 3em; font-size: 2em; color: #004d40; text-align: center;">
-      Membresías: Conectividad Sin Interrupciones
+    <h2 style="margin-top: 3em; font-size: 2.5em; color: #FFD700; text-align: center;">
+      Membresías
     </h2>
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; justify-items: center; margin-top: 1em;">
       
       <div class="card-servicio">
-        <h3>🥉 Gold (Básica)</h3>
+        <h3> Gold </h3>
         <p><strong>Mensual:</strong> $200.000 COP<br><strong>Anual:</strong> $2.160.000 COP</p>
         <ul>
           <li>Soporte remoto ilimitado (2h mensuales).</li>
@@ -396,7 +425,7 @@ body {
       </div>
 
       <div class="card-servicio">
-        <h3>🥈 Platinum (Premium)</h3>
+        <h3> Platinum </h3>
         <p><strong>Mensual:</strong> $450.000 COP<br><strong>Anual:</strong> $4.590.000 COP</p>
         <ul>
           <li>Soporte remoto y en sitio ilimitado (5h en sitio).</li>
@@ -408,7 +437,7 @@ body {
       </div>
 
       <div class="card-servicio">
-        <h3>🥇 Diamond (VIP)</h3>
+        <h3> Diamond</h3>
         <p><strong>Mensual:</strong> $850.000 COP<br><strong>Anual:</strong> $8.160.000 COP</p>
         <ul>
           <li>Soporte remoto y en sitio ilimitado y prioritario.</li>
@@ -429,11 +458,12 @@ body {
   <p>
     Ofrecer altos niveles de calidad, seguridad, estabilidad y escalabilidad para impulsar a nuestros clientes a digitalizarse, optimizar su conectividad y facilitar su crecimiento y eficacia operativa.
   </p>
+  <img src="img/mision.png" id="Mision" alt="Misión CCCNet"
+       style="width:50%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
   <p>
     En CCCNet creemos que la conectividad es una herramienta clave para el desarrollo empresarial y social. Nuestra misión se basa en brindar soluciones personalizadas que respondan a las necesidades tecnológicas actuales, con soporte técnico de excelencia, atención cercana y un enfoque constante en la innovación.
   </p>
-  <img src="img/mision.png" id="Mision" alt="Misión CCCNet"
-       style="width:50%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
+  
 </section>
 
 <section id="vision" class="content">
@@ -441,11 +471,12 @@ body {
   <p>
     Ser reconocida por generar soluciones innovadoras de redes, conectando de la mejor manera a las personas, empresas y tecnologías para proporcionar la mejor red.
   </p>
+  <img src="img/vision.png" id="vision-img" alt="Visión CCCNet"
+       style="width:50%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
   <p>
     Visualizamos un futuro donde todas las regiones del país, tanto urbanas como rurales, puedan acceder a una red eficiente, segura y moderna. Queremos ser la referencia nacional en servicios de conectividad, consolidando alianzas estratégicas, desarrollando talento humano especializado y promoviendo un crecimiento tecnológico sostenible.
   </p>
-  <img src="img/vision.png" id="vision-img" alt="Visión CCCNet"
-       style="width:50%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
+
 </section>
 
 <section id="objetivos" class="content">
@@ -454,7 +485,8 @@ body {
   <p>
     Brindar soluciones integrales en instalación, mantenimiento y soporte de redes tecnológicas, garantizando calidad, confianza y eficiencia para clientes residenciales y empresariales en Cajicá y sus alrededores.
   </p>
-
+ <img src="img/objetivos.png" id="objetivos-img" alt="objetivos CCCNet"
+       style="width:50%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
   <h3>Objetivos especificos</h3>
   <p>
     Fidelizar y ampliar nuestra red de clientes, ofreciendo atención personalizada, tiempos de respuesta rápidos y un servicio técnico altamente calificado.
@@ -465,8 +497,7 @@ body {
   <p>
     Impulsar el crecimiento sostenible de la empresa, expandiendo nuestras operaciones hacia ciudades cercanas como Zipaquirá y Chía, y diversificando nuestros servicios tecnológicos.
   </p>
-  <img src="img/objetivos.png" id="objetivos-img" alt="objetivos CCCNet"
-       style="width:50%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
+ 
 </section>
 
 <section id="justificacion" class="content">
@@ -474,17 +505,14 @@ body {
   <p>
     La empresa surge ante la creciente demanda de soluciones tecnológicas confiables en el área de redes, conectividad y soporte técnico, tanto a nivel residencial como empresarial.
   </p>
+  <img src="img/justificacion.png" id="justificacion-img" alt="Justificación CCCNet"
+       style="width:50%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
   <p>
     En un entorno cada vez más digitalizado, donde la conectividad es clave para el funcionamiento de hogares y negocios, se hace necesario contar con proveedores calificados que garanticen calidad, rapidez y eficiencia. Además, el desarrollo en municipios como Cajicá, Zipaquirá y Chía representa una oportunidad para ofrecer servicios integrales con alto estándar profesional, posicionándose como una marca de referencia en la región.
   </p>
-  <img src="img/justificacion.png" id="justificacion-img" alt="Justificación CCCNet"
-       style="width:50%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
+  
 </section>
 
-<section id="servicio" class="content">
-  <h2>Servicio</h2>
-  <p>Contenido del servicio...</p>
-</section>
 
 <section id="ventajas" class="content">
   <h2>Ventajas</h2>
@@ -510,7 +538,7 @@ body {
   <h2>Organigrama</h2>
   <p>Aqui podemos observar nustro organigrama que define los puestos y las personas encargada de cada trabajo</p>
  <img src="img/organigrama.png" id="organigrama-img" alt="organigrama CCCNet"
-       style="width:80%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
+       style="width:100%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
 </section>
 
 <section id="sostenibilidad" class="content">
@@ -572,7 +600,7 @@ body {
   </section>
 
 <footer>
-  <p>&copy; 2025 CCCNet. Todos los derechos reservados.</p>
+ 
   <p>
     <a href="mailto:ccc.net2025@gmail.com" style="color:white;">ccc.net2025@gmail.com</a>
   </p>
@@ -580,6 +608,7 @@ body {
     <a href="https://www.instagram.com/cccnet2025/" target="_blank" style="color:white;">Instagram</a> |
     <a href="https://www.tiktok.com/@cccnet_" target="_blank" style="color:white;">TikTok</a> |
     <a href="https://www.youtube.com/channel/UC8txwMAug9y4Uq35Seyf55g" target="_blank" style="color:white;">YouTube</a>
+     <p>&copy; 2025 CCCNet. Todos los derechos reservados.</p>
   </p>
 <div class="foxi-container" onclick="foxiTalk()">
   <div class="bubble" id="foxi-bubble"></div> <!-- EL GLOBO PRIMERO -->
