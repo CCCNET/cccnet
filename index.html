@@ -182,7 +182,7 @@ nav {
   gap: 1.5em;
   margin-top: 2em;
 }
-.content.servicios {
+.servicios {
   background: linear-gradient(180deg, #111 0%, #1a1a1a 50%, #111 100%);
   padding: 3em 1.5em;
   border-radius: 14px;
@@ -299,9 +299,141 @@ footer a {
 footer a:hover {
   text-shadow: 0 0 10px var(--dorado);
 }
+.video-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+  max-width: 720px; /* 🔸 Controla el ancho máximo */
+  width: 90%; /* 🔸 Adaptable en móviles */
+}
+
+.video-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 4px;
+  background: linear-gradient(135deg, #FFD700, #FFA500, #FFD700, #FFF5CC);
+  background-size: 300% 300%;
+  animation: borderFlow 4s linear infinite;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+@keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.video-wrapper video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.video-wrapper video:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+}
+
+.video-caption {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--dorado);
+  padding: 0.6em 1em;
+  border: 1px solid var(--dorado);
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  z-index: 5;
+  pointer-events: none;
+}
+.collage-section {
+  text-align: center;
+  padding: 3em 1em;
+  background: #111;
+  color: var(--dorado);
+}
+
+.collage-section h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  color: var(--dorado);
+}
+
+.collage-section p {
+  color: #ccc;
+  margin-bottom: 2em;
+}
+
+.collage {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1em;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.collage-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.collage-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+}
+
+.collage-item:hover img {
+  transform: scale(1.1);
+}
+
+/* 💫 Efecto dorado al pasar el mouse */
+.collage-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #FFD700, transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.collage-item:hover::after {
+  opacity: 1;
+}
 </style>
-
-
 </head>
 <body>
   <header>
@@ -350,12 +482,21 @@ footer a:hover {
 
   <!-- Inicio -->
   <section id="inicio" class="content active">
-      <h2>¿Qienes somos?</h2>
+<h2>Bienvenidos a CCCNET</h2>
+   <div class="video-wrapper">
+  <video id="promoVideo" controls autoplay muted loop playsinline>
+    <source src="img/Video1.mp4" type="video/mp4">
+    Tu navegador no soporta la reproducción de video.
+  </video>
+  <div class="video-caption">✨ Conéctate con el futuro junto a CCCNet ✨</div>
+</div>
+
+      <h2>¿Quienes somos?</h2>
       <p>CCCNet es una empresa formada por 5 jovenes emprendedores que buscan ayudar a la comunidad por medio del mantenimiento de redes brindar un servicio que cumpla con los requerimentos del cliente</p>
     <img src="img/nosotros.png" id="nosotros" alt="nosotros"style="width:80%; margin-top:1em; display: block; margin-left: auto; margin-right: auto;"/>
       <h2>¿Por que creamos esta empresa?</h2>
       <p>Creamos esta empresa para poder ayudar a personas que se sienten o se han sentido inconforme cuando deciden hacer un mantenimiento o instalacion de redes, sabemos que muchas personas quedan inconformes cuando contratan un servicio de red ya que ellos solo les aseguran la señal mas no que funcione correctamente para eso estamos nosotros para optimizar su red al maximo y que el cliente le pueda sacar todo el provecho que se le desea obtener.</p>
-     
+  
     
   </section>
 
@@ -532,6 +673,19 @@ footer a:hover {
   <p>
     Queremos crecer contigo. Cada proyecto es una oportunidad para demostrar que la responsabilidad, la buena actitud y el deseo de aprender también son garantía de un buen servicio.
   </p>
+       <section id="trabajos" class="collage-section">
+    <h2>Conoce nuestro trabajos</h2>
+    <div class="collage">
+      <div class="collage-item"><img src="img/trabajo1.png" alt="Trabajo 1"></div>
+      <div class="collage-item"><img src="img/trabajo2.png" alt="Trabajo 2"></div>
+      <div class="collage-item"><img src="img/trabajo3.png" alt="Trabajo 3"></div>
+      <div class="collage-item"><img src="img/trabajo4.png" alt="Trabajo 4"></div>
+      <div class="collage-item"><img src="img/trabajo5.png" alt="Trabajo 5"></div>
+      <div class="collage-item"><img src="img/trabajo6.png" alt="Trabajo 6"></div>
+      <div class="collage-item"><img src="img/trabajo7.png" alt="Trabajo 7"></div>
+    </div>
+  </section>
+     
 </section>
 
 <section id="organigrama" class="content">
@@ -631,15 +785,21 @@ footer a:hover {
   }
 
   function foxiTalk() {
-    const messages = [
-      "¡Hola! ¿Necesitas ayuda?",
-      "Bienvenido a CCCNet 😄",
-      "Estoy para ayudarte.",
-      "No hay red que se me resista 🦊",
-      "Escríbeme en el formulario 📩"
-    ];
-    foxiSay(messages[Math.floor(Math.random() * messages.length)]);
-  }
+  const messages = [
+    "¡Hola! ¿Necesitas ayuda?",
+    "Bienvenido a CCCNet 😄",
+    "Estoy para ayudarte.",
+    "No hay red que se me resista 🦊",
+    "Escríbeme en el formulario 📩",
+    "Soy afortunado, ¡nunca fui más rápido! ⚡",
+    "Si no puedo yo, ¡no puede nadie! 💪",
+    "CCCNet: donde tu red corre como un deportivo 🏎️",
+    "Jajaja, ¡nunca has estado en un mejor lugar! 😎",
+    "Soy Nexi, ¡mucho gusto! 🦊"
+  ];
+
+  foxiSay(messages[Math.floor(Math.random() * messages.length)]);
+}
 
   function foxiSay(texto) {
     const bubble = document.getElementById("foxi-bubble");
@@ -652,7 +812,14 @@ footer a:hover {
     }, 6000);
   }
 
-  window.onload = () => showSection('inicio');
+  window.onload = () => {
+  showSection('inicio');
+
+  // 🦊 Nexi da la bienvenida automáticamente 1 segundo después de cargar la página
+  setTimeout(() => {
+    foxiSay("¡Hola! Soy Nexi 🦊, tu asistente en CCCNet.");
+  }, 1000);
+};
 
   const form = document.getElementById("contact-form");
   if (form) {
@@ -677,6 +844,20 @@ footer a:hover {
       }
     });
   }
+</script>
+<script>
+  const video = document.getElementById('promoVideo');
+
+  // Intenta reproducir automáticamente
+  video.play().catch(() => {
+    console.log('Autoplay bloqueado — el usuario debe interactuar.');
+  });
+
+  // Al hacer clic, se activa el sonido y se reproduce
+  document.addEventListener('click', () => {
+    if (video.paused) video.play();
+    if (video.muted) video.muted = false;
+  }, { once: true });
 </script>
 </body>
 </html>
